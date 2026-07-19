@@ -1,0 +1,7 @@
+sample_id,age,condition,batch
+A01,34,control,run_1
+A02,42,case,run_1
+A03,51,control,run_2
+A04,47,case,run_2
+A05,39,control,run_1
+A06,45,case,run_2

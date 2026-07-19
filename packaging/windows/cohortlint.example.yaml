@@ -1,0 +1,26 @@
+version: 1
+cohorts:
+  - name: cohort_a
+    path: data/cohort_a.csv
+    sample_id: sample_id
+  - name: cohort_b
+    path: data/cohort_b.csv
+    sample_id: sample_id
+schema:
+  age:
+    type: numeric
+    unit: years
+    range: [0, 120]
+    required: true
+  condition:
+    type: categorical
+    role: biological
+    required: true
+  batch:
+    type: categorical
+    role: technical
+    required: true
+privacy:
+  k_anonymity_threshold: 5
+output:
+  lang: tr
