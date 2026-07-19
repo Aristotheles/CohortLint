@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import pandas as pd
+from fixtures.synthetic.generate import generate_structural_fixture
 from typer.testing import CliRunner
 
 from cohortlint.cli import app
@@ -12,7 +13,6 @@ from cohortlint.rules.structural import (
     schema_drift,
     type_disagreement,
 )
-from tests.fixtures.synthetic.generate import generate_structural_fixture
 
 
 def _context(frames: dict[str, pd.DataFrame], ratio: float = 1.5) -> RuleContext:
