@@ -2,3 +2,19 @@ TEST001:
   title: "Test finding"
   detail: "Test detail for {name}"
   suggestion: "Review the test input."
+S001:
+  title: "Sample identifier integrity"
+  detail: "Sample identifier '{sample_id}' has missing, null, or duplicate values."
+  suggestion: "Provide a present, non-null, unique sample identifier for every row."
+S002:
+  title: "Possible observation-level mixing"
+  detail: "The row-to-sample ratio is {ratio}; this may be cell-level rather than sample-level metadata."
+  suggestion: "Confirm the intended observation level before integration."
+S003:
+  title: "Schema drift across cohorts"
+  detail: "Schema drift affects column '{column}' and cohorts: {cohorts}."
+  suggestion: "Align cohort columns with the target schema or declare intentional extra columns."
+S004:
+  title: "Type disagreement"
+  detail: "Column '{column}' is numeric in {numeric_cohorts} but non-numeric in {non_numeric_cohorts}."
+  suggestion: "Correct the reported blocking values or update the declared schema type."

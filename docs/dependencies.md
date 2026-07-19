@@ -4,6 +4,7 @@
 |---|---|
 | pandas | BSD-3-Clause |
 | numpy | BSD-3-Clause |
+| openpyxl | MIT |
 | scipy | BSD-3-Clause |
 | pydantic | MIT |
 | typer | MIT |

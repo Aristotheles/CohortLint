@@ -2,3 +2,19 @@ TEST001:
   title: "Testbefund"
   detail: "Testdetail für {name}"
   suggestion: "Prüfen Sie die Testeingabe."
+S001:
+  title: "Integrität der Stichprobenkennung"
+  detail: "Die Stichprobenkennung '{sample_id}' enthält fehlende, leere oder doppelte Werte."
+  suggestion: "Geben Sie für jede Zeile eine vorhandene, nicht leere und eindeutige Stichprobenkennung an."
+S002:
+  title: "Mögliche Vermischung der Beobachtungsebenen"
+  detail: "Das Verhältnis von Zeilen zu Stichproben beträgt {ratio}; möglicherweise liegen Zell- statt Stichprobenmetadaten vor."
+  suggestion: "Bestätigen Sie vor der Integration die beabsichtigte Beobachtungsebene."
+S003:
+  title: "Schemaabweichung zwischen Kohorten"
+  detail: "Die Schemaabweichung betrifft die Spalte '{column}' und folgende Kohorten: {cohorts}."
+  suggestion: "Gleichen Sie die Kohortenspalten an das Zielschema an oder deklarieren Sie beabsichtigte Zusatzspalten."
+S004:
+  title: "Abweichende Datentypen"
+  detail: "Die Spalte '{column}' ist in {numeric_cohorts} numerisch, in {non_numeric_cohorts} jedoch nicht numerisch."
+  suggestion: "Korrigieren Sie die gemeldeten blockierenden Werte oder ändern Sie den deklarierten Schematyp."

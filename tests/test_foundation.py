@@ -4,10 +4,11 @@ import pandas as pd
 import pytest
 from typer.testing import CliRunner
 
+import cohortlint.registry as registry
 from cohortlint.cli import app
 from cohortlint.i18n import catalogue, render, resolve_language
 from cohortlint.model import Finding, Report, RuleContext, Severity
-from cohortlint.registry import registered_rules, rule, run_rules
+from cohortlint.registry import rule, run_rules
 
 
 def test_report_model() -> None:
@@ -23,14 +24,14 @@ def test_report_model() -> None:
     assert report.findings[0].severity is Severity.INFO
 
 
-def test_registry_executes_rules() -> None:
+def test_registry_executes_rules(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(registry, "_RULES", {})
     rule_id = "T_FOUNDATION"
-    if not any(item.id == rule_id for item in registered_rules()):
 
-        @rule(id=rule_id, severity=Severity.INFO, category="test")
-        def example(ctx: RuleContext) -> list[Finding]:
-            del ctx
-            return [Finding(rule_id=rule_id, severity=Severity.INFO)]
+    @rule(id=rule_id, severity=Severity.INFO, category="test")
+    def example(ctx: RuleContext) -> list[Finding]:
+        del ctx
+        return [Finding(rule_id=rule_id, severity=Severity.INFO)]
 
     frame = pd.DataFrame({"sample": ["x"]})
     context = RuleContext(cohorts={"a": frame}, merged=frame, config={})
@@ -53,7 +54,10 @@ def test_language_resolution(monkeypatch: pytest.MonkeyPatch) -> None:
 def test_cli_help_and_skeleton_commands() -> None:
     runner = CliRunner()
     assert runner.invoke(app, ["--help"]).exit_code == 0
-    for command in ("init", "check", "harmonize", "rules"):
+    for command in ("init", "harmonize"):
         result = runner.invoke(app, [command])
         assert result.exit_code == 0
         assert "not implemented" in result.stdout
+    rules_result = runner.invoke(app, ["rules"])
+    assert rules_result.exit_code == 0
+    assert "S001" in rules_result.stdout

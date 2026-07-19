@@ -2,3 +2,19 @@ TEST001:
   title: "Test bulgusu"
   detail: "{name} için test ayrıntısı"
   suggestion: "Test girdisini gözden geçirin."
+S001:
+  title: "Örnek tanımlayıcı bütünlüğü"
+  detail: "'{sample_id}' örnek tanımlayıcısında eksik, boş veya yinelenen değerler var."
+  suggestion: "Her satır için mevcut, boş olmayan ve benzersiz bir örnek tanımlayıcı sağlayın."
+S002:
+  title: "Olası gözlem düzeyi karışması"
+  detail: "Satır/örnek oranı {ratio}; bu tablo örnek düzeyi yerine hücre düzeyi metadata olabilir."
+  suggestion: "Entegrasyondan önce amaçlanan gözlem düzeyini doğrulayın."
+S003:
+  title: "Kohortlar arası şema kayması"
+  detail: "Şema kayması '{column}' sütununu ve şu kohortları etkiliyor: {cohorts}."
+  suggestion: "Kohort sütunlarını hedef şemayla hizalayın veya bilinçli ek sütunları tanımlayın."
+S004:
+  title: "Veri tipi uyuşmazlığı"
+  detail: "'{column}' sütunu {numeric_cohorts} içinde sayısal, {non_numeric_cohorts} içinde sayısal değil."
+  suggestion: "Bildirilen engelleyici değerleri düzeltin veya tanımlanan şema tipini güncelleyin."
