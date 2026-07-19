@@ -64,3 +64,7 @@ select = ["E", "F", "I", "UP", "B"]
 python_version = "3.11"
 strict = true
 packages = ["cohortlint"]
+
+[[tool.mypy.overrides]]
+module = ["scipy.*"]
+ignore_missing_imports = true

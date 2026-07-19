@@ -18,3 +18,35 @@ S004:
   title: "Veri tipi uyuşmazlığı"
   detail: "'{column}' sütunu {numeric_cohorts} içinde sayısal, {non_numeric_cohorts} içinde sayısal değil."
   suggestion: "Bildirilen engelleyici değerleri düzeltin veya tanımlanan şema tipini güncelleyin."
+U001:
+  title: "Sayısal birim kayması"
+  detail: "'{column}' sütununda uyumsuz kohort medyanları veya çıkarılan birimler var; tanımlı birim: {declared_unit}."
+  suggestion: "Kaynak birimleri doğrulayın ve entegrasyondan önce tek bir tanımlı birime dönüştürün."
+U002:
+  title: "Kategorik kodlama kayması"
+  detail: "'{column}' sütununda izin verilen değerler ve eşanlamlılar dışında değerler var."
+  suggestion: "Önerilen eşlemeleri inceleyin ve kabul edilen yazımları config dosyasına ekleyin."
+U003:
+  title: "Ondalık ayırıcı artefaktı"
+  detail: "'{column}' sütunundaki dolu değerlerin {fraction} kadarı ondalık virgül kullanıyor."
+  suggestion: "Ondalık virgülleri harmonize komutuyla ondalık noktaya dönüştürün."
+U004:
+  title: "Ölçek uyuşmazlığı"
+  detail: "'{column}' sütununun yayılımı, kohortlar arasında yapılandırılan büyüklük mertebesinden fazla değişiyor."
+  suggestion: "Log dönüşümlü ve doğrusal değerlerin karışıp karışmadığını kontrol edin."
+U005:
+  title: "Aralık dışı değerler"
+  detail: "'{column}' sütununda tanımlı aralığın dışında {count} değer var."
+  suggestion: "Uç değerleri kaynaktan doğrulayın ve yalnızca doğrulanmış hataları düzeltin."
+C001:
+  title: "Gerekli kovaryat yok"
+  detail: "Gerekli '{column}' kovaryatı bu kohortta yok."
+  suggestion: "Kovaryatı sağlayın veya hedef şemayı açıkça güncelleyin."
+C002:
+  title: "Yüksek eksiklik oranı"
+  detail: "'{column}' sütunundaki değerlerin {fraction} kadarı eksik."
+  suggestion: "Entegrasyonun geçerliliğini değerlendirin ve imputasyon kararlarını belgeleyin."
+C003:
+  title: "Diferansiyel eksiklik"
+  detail: "'{column}' eksikliği düzeltme sonrasında '{biological}' ile ilişkili (q={q_value})."
+  suggestion: "Tam vakaların yanlılıksız olduğunu varsaymayın; eksiklik mekanizmasını inceleyin."
