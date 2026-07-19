@@ -2,6 +2,10 @@ TEST001:
   title: "Test finding"
   detail: "Test detail for {name}"
   suggestion: "Review the test input."
+REPORT:
+  title: "CohortLint report"
+  heuristic: "This score is a communication heuristic, not a statistic."
+  evidence: "Evidence"
 S001:
   title: "Sample identifier integrity"
   detail: "Sample identifier '{sample_id}' has missing, null, or duplicate values."
@@ -86,3 +90,15 @@ V003:
   title: "Near-duplicate ontology labels"
   detail: "Column '{column}' has {count} ontology concepts represented by multiple raw labels."
   suggestion: "Use harmonize to collapse accepted high-confidence labels with provenance."
+P001:
+  title: "Residual direct identifiers"
+  detail: "Column '{column}' contains {count} values matching direct-identifier patterns. This is a heuristic, not a compliance assessment."
+  suggestion: "Remove or appropriately pseudonymize identifiers before sharing or integration."
+P002:
+  title: "k-anonymity violation"
+  detail: "{count} quasi-identifier groups are smaller than k={threshold}. This is a heuristic, not a compliance assessment."
+  suggestion: "Review the driving columns and coarsen categories only after considering scientific utility."
+P003:
+  title: "Excessive date precision"
+  detail: "Column '{column}' appears to retain day-level dates. This is a heuristic, not a compliance assessment."
+  suggestion: "Consider reducing precision to month or year when exact dates are not scientifically required."

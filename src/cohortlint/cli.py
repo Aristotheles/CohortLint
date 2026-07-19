@@ -15,6 +15,7 @@ from cohortlint.i18n import resolve_language
 from cohortlint.loader import load_metadata
 from cohortlint.model import Report, RuleContext, Severity
 from cohortlint.registry import registered_rules, run_rules
+from cohortlint.report.html import render_html
 from cohortlint.report.json import render_json
 from cohortlint.report.terminal import render_terminal
 
@@ -63,8 +64,8 @@ def check(
             for finding in findings
         ]
         language = resolve_language(lang, config.output.lang)
-        if format_ not in {"terminal", "json"}:
-            raise ValueError("--format must be terminal or json")
+        if format_ not in {"terminal", "json", "html"}:
+            raise ValueError("--format must be terminal, json, or html")
         if fail_on not in {"error", "warning", "never"}:
             raise ValueError("--fail-on must be error, warning, or never")
         score = next(
@@ -79,7 +80,12 @@ def check(
             generated_at=datetime.now(UTC),
             cohortlint_version=__version__,
         )
-        rendered = render_json(report) if format_ == "json" else render_terminal(findings, language)
+        if format_ == "json":
+            rendered = render_json(report)
+        elif format_ == "html":
+            rendered = render_html(report, language)
+        else:
+            rendered = render_terminal(findings, language)
         if output is None:
             typer.echo(rendered)
         else:

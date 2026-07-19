@@ -103,10 +103,9 @@ def test_cli_reports_exact_structural_fixture_findings(tmp_path: Path) -> None:
     reported = [
         line.split("]", 1)[0][1:] for line in result.stdout.splitlines() if line.startswith("[")
     ]
-    assert reported == [
+    assert [rule_id for rule_id in reported if rule_id.startswith("S")] == [
         "S001",
         "S004",
         "S002",
         "S003",
-        "D006",
     ]

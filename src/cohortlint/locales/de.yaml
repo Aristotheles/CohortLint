@@ -2,6 +2,10 @@ TEST001:
   title: "Testbefund"
   detail: "Testdetail für {name}"
   suggestion: "Prüfen Sie die Testeingabe."
+REPORT:
+  title: "CohortLint-Bericht"
+  heuristic: "Dieser Wert ist eine Kommunikationsheuristik, keine Statistik."
+  evidence: "Evidenz"
 S001:
   title: "Integrität der Stichprobenkennung"
   detail: "Die Stichprobenkennung '{sample_id}' enthält fehlende, leere oder doppelte Werte."
@@ -86,3 +90,15 @@ V003:
   title: "Nahezu doppelte Ontologiebezeichnungen"
   detail: "In der Spalte '{column}' werden {count} Ontologiekonzepte durch mehrere Rohbezeichnungen dargestellt."
   suggestion: "Fassen Sie akzeptierte hochkonfidente Bezeichnungen mit harmonize und Provenienz zusammen."
+P001:
+  title: "Verbleibende direkte Identifikatoren"
+  detail: "Die Spalte '{column}' enthält {count} Werte mit Mustern direkter Identifikatoren. Dies ist eine Heuristik, keine Compliance-Bewertung."
+  suggestion: "Entfernen oder pseudonymisieren Sie Identifikatoren angemessen vor Weitergabe oder Integration."
+P002:
+  title: "Verletzung der k-Anonymität"
+  detail: "{count} Quasi-Identifikatorgruppen sind kleiner als k={threshold}. Dies ist eine Heuristik, keine Compliance-Bewertung."
+  suggestion: "Prüfen Sie die bestimmenden Spalten und vergröbern Sie Kategorien nur unter Wahrung des wissenschaftlichen Nutzens."
+P003:
+  title: "Übermäßige Datumsgenauigkeit"
+  detail: "Die Spalte '{column}' enthält offenbar tagesgenaue Daten. Dies ist eine Heuristik, keine Compliance-Bewertung."
+  suggestion: "Reduzieren Sie die Genauigkeit auf Monat oder Jahr, wenn exakte Daten wissenschaftlich nicht erforderlich sind."

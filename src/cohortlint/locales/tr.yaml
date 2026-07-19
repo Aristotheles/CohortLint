@@ -2,6 +2,10 @@ TEST001:
   title: "Test bulgusu"
   detail: "{name} için test ayrıntısı"
   suggestion: "Test girdisini gözden geçirin."
+REPORT:
+  title: "CohortLint raporu"
+  heuristic: "Bu skor bir iletişim sezgisidir, istatistik değildir."
+  evidence: "Kanıt"
 S001:
   title: "Örnek tanımlayıcı bütünlüğü"
   detail: "'{sample_id}' örnek tanımlayıcısında eksik, boş veya yinelenen değerler var."
@@ -86,3 +90,15 @@ V003:
   title: "Yakın yinelenen ontoloji etiketleri"
   detail: "'{column}' sütununda {count} ontoloji kavramı birden fazla ham etiketle temsil ediliyor."
   suggestion: "Kabul edilen yüksek güvenli etiketleri provenance kaydıyla birleştirmek için harmonize kullanın."
+P001:
+  title: "Kalan doğrudan tanımlayıcılar"
+  detail: "'{column}' sütununda doğrudan tanımlayıcı örüntülerine uyan {count} değer var. Bu bir sezgidir, uyumluluk değerlendirmesi değildir."
+  suggestion: "Paylaşım veya entegrasyondan önce tanımlayıcıları kaldırın ya da uygun şekilde takma adlandırın."
+P002:
+  title: "k-anonimlik ihlali"
+  detail: "{count} yarı tanımlayıcı grup k={threshold} değerinden küçük. Bu bir sezgidir, uyumluluk değerlendirmesi değildir."
+  suggestion: "Belirleyici sütunları inceleyin ve kategorileri yalnızca bilimsel faydayı gözeterek kabalaştırın."
+P003:
+  title: "Aşırı tarih hassasiyeti"
+  detail: "'{column}' sütunu gün düzeyinde tarih tutuyor. Bu bir sezgidir, uyumluluk değerlendirmesi değildir."
+  suggestion: "Tam tarihler bilimsel olarak gerekmiyorsa hassasiyeti ay veya yıla düşürün."
