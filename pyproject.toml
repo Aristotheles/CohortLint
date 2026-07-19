@@ -21,7 +21,7 @@ classifiers = [
 ]
 dependencies = [
   "jinja2>=3.1",
-  "numpy>=1.26",
+  "numpy>=1.26,<2.4",
   "pandas>=2.1",
   "pydantic>=2.5",
   "pyyaml>=6.0",
