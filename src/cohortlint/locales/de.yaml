@@ -18,3 +18,35 @@ S004:
   title: "Abweichende Datentypen"
   detail: "Die Spalte '{column}' ist in {numeric_cohorts} numerisch, in {non_numeric_cohorts} jedoch nicht numerisch."
   suggestion: "Korrigieren Sie die gemeldeten blockierenden Werte oder ändern Sie den deklarierten Schematyp."
+U001:
+  title: "Abweichende numerische Einheiten"
+  detail: "Die Spalte '{column}' weist inkompatible Kohortenmediane oder abgeleitete Einheiten auf; deklarierte Einheit: {declared_unit}."
+  suggestion: "Prüfen Sie die Quelleinheiten und konvertieren Sie vor der Integration in eine gemeinsame Einheit."
+U002:
+  title: "Abweichende kategoriale Kodierung"
+  detail: "Die Spalte '{column}' enthält Werte außerhalb der erlaubten Werte und Synonyme."
+  suggestion: "Prüfen Sie die vorgeschlagenen Zuordnungen und ergänzen Sie akzeptierte Schreibweisen in der Konfiguration."
+U003:
+  title: "Artefakt durch Dezimaltrennzeichen"
+  detail: "In der Spalte '{column}' verwenden {fraction} der vorhandenen Werte ein Dezimalkomma."
+  suggestion: "Konvertieren Sie Dezimalkommas mit dem Befehl harmonize in Dezimalpunkte."
+U004:
+  title: "Abweichende Skalierung"
+  detail: "Die Streuung der Spalte '{column}' unterscheidet sich um mehr als die konfigurierte Größenordnung."
+  suggestion: "Prüfen Sie, ob logarithmisch transformierte und lineare Werte vermischt wurden."
+U005:
+  title: "Werte außerhalb des Bereichs"
+  detail: "Die Spalte '{column}' enthält {count} Werte außerhalb des deklarierten Bereichs."
+  suggestion: "Prüfen Sie Extremwerte anhand der Quelle und korrigieren Sie nur bestätigte Fehler."
+C001:
+  title: "Erforderliche Kovariate fehlt"
+  detail: "Die erforderliche Kovariate '{column}' fehlt in dieser Kohorte."
+  suggestion: "Stellen Sie die Kovariate bereit oder ändern Sie das Zielschema ausdrücklich."
+C002:
+  title: "Hoher Anteil fehlender Werte"
+  detail: "In der Spalte '{column}' fehlen {fraction} der Werte."
+  suggestion: "Bewerten Sie die Gültigkeit der Integration und dokumentieren Sie jede Imputationsentscheidung."
+C003:
+  title: "Differentielle Fehlwerte"
+  detail: "Fehlwerte in '{column}' sind nach Korrektur mit '{biological}' assoziiert (q={q_value})."
+  suggestion: "Nehmen Sie nicht an, dass vollständige Fälle unverzerrt sind; prüfen Sie den Fehlwertmechanismus."

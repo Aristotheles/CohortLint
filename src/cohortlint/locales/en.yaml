@@ -18,3 +18,35 @@ S004:
   title: "Type disagreement"
   detail: "Column '{column}' is numeric in {numeric_cohorts} but non-numeric in {non_numeric_cohorts}."
   suggestion: "Correct the reported blocking values or update the declared schema type."
+U001:
+  title: "Numeric unit drift"
+  detail: "Column '{column}' has incompatible cohort medians or inferred units; declared unit: {declared_unit}."
+  suggestion: "Confirm the source units and convert values to one declared unit before integration."
+U002:
+  title: "Categorical encoding drift"
+  detail: "Column '{column}' contains values outside its allowed values and synonyms."
+  suggestion: "Review the suggested mappings and add accepted spellings to the config."
+U003:
+  title: "Decimal separator artifact"
+  detail: "In column '{column}', {fraction} of populated values use a decimal comma."
+  suggestion: "Convert decimal commas to decimal points with the harmonize command."
+U004:
+  title: "Scale mismatch"
+  detail: "Column '{column}' differs by more than the configured orders of magnitude in spread."
+  suggestion: "Check whether cohorts use log-transformed and linear values."
+U005:
+  title: "Out-of-range values"
+  detail: "Column '{column}' contains {count} values outside its declared range."
+  suggestion: "Verify extreme values against the source and correct only confirmed errors."
+C001:
+  title: "Required covariate absent"
+  detail: "Required covariate '{column}' is absent from this cohort."
+  suggestion: "Provide the covariate or explicitly revise the target schema."
+C002:
+  title: "High missingness"
+  detail: "Column '{column}' has {fraction} missing values."
+  suggestion: "Assess whether integration remains valid and document any imputation decision."
+C003:
+  title: "Differential missingness"
+  detail: "Missingness in '{column}' is associated with '{biological}' after correction (q={q_value})."
+  suggestion: "Do not assume complete cases are unbiased; review the missingness mechanism."

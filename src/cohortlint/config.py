@@ -43,6 +43,11 @@ class RulesConfig(BaseModel):
         default_factory=dict
     )
     observation_level_ratio: float = Field(default=1.5, gt=1)
+    unit_median_ratio: float = Field(default=10.0, gt=1)
+    decimal_separator_fraction: float = Field(default=0.8, ge=0, le=1)
+    scale_iqr_orders: float = Field(default=2.0, gt=0)
+    missingness_fraction: float = Field(default=0.2, ge=0, le=1)
+    differential_missingness_alpha: float = Field(default=0.05, gt=0, lt=1)
 
 
 class PrivacyConfig(BaseModel):
