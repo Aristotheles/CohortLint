@@ -14,3 +14,16 @@
 | text2term (optional) | BSD-3-Clause |
 
 Only permissively licensed runtime dependencies may be added.
+
+## Development and release tooling
+
+| Dependency | Licence |
+|---|---|
+| pytest / pytest-cov | MIT |
+| hypothesis | MPL-2.0 |
+| ruff | MIT |
+| mypy | MIT |
+| bandit | Apache-2.0 |
+| pip-audit | Apache-2.0 |
+| build | MIT |
+| twine | Apache-2.0 |

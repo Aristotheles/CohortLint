@@ -10,6 +10,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = { file = "LICENSE" }
 authors = [{ name = "CohortLint contributors" }]
+keywords = ["bioinformatics", "metadata", "omics", "quality-control"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "License :: OSI Approved :: MIT License",
@@ -30,16 +31,25 @@ dependencies = [
   "typer>=0.12",
 ]
 
+[project.urls]
+Homepage = "https://github.com/Aristotheles/CohortLint"
+Repository = "https://github.com/Aristotheles/CohortLint"
+Issues = "https://github.com/Aristotheles/CohortLint/issues"
+
 [project.optional-dependencies]
 anndata = ["anndata>=0.10"]
 ontology = ["text2term>=4.1"]
 dev = [
+  "bandit>=1.7",
+  "build>=1.2",
   "hypothesis>=6.90",
   "mypy>=1.8",
   "pandas-stubs>=2.1",
+  "pip-audit>=2.7",
   "pytest>=8.0",
   "pytest-cov>=5.0",
   "ruff>=0.5",
+  "twine>=5.1",
   "types-PyYAML>=6.0",
 ]
 
@@ -48,6 +58,9 @@ cohortlint = "cohortlint.cli:app"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/cohortlint"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/cohortlint", "tests", "docs", "README.md", "SECURITY.md", "LICENSE"]
 
 [tool.pytest.ini_options]
 addopts = "-q"

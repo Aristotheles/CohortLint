@@ -13,9 +13,7 @@ def generate_structural_fixture(directory: Path) -> Path:
     pd.DataFrame({"id": ["a1", "a1"], "age": [20, 21], "sex": ["f", "f"]}).to_csv(
         first, index=False
     )
-    pd.DataFrame({"id": ["b1", "b2"], "age": ["bad", "30"]}).to_csv(
-        second, sep="\t", index=False
-    )
+    pd.DataFrame({"id": ["b1", "b2"], "age": ["bad", "30"]}).to_csv(second, sep="\t", index=False)
     config = directory / "cohortlint.yaml"
     config.write_text(
         f"""version: 1
