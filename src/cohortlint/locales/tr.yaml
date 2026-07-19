@@ -74,3 +74,15 @@ D006:
   title: "Entegre edilebilirlik skoru"
   detail: "Entegre edilebilirlik skoru {score}/100. Bu bir iletişim sezgisidir, istatistik değildir."
   suggestion: "Entegrasyon kararını yalnızca bu skora değil, tek tek bulgulara dayandırın."
+V001:
+  title: "Eşlenmemiş ontoloji terimleri"
+  detail: "'{column}' ontoloji sütununda {count} eşlenmemiş terim var veya isteğe bağlı ontology bağımlılığı kullanılamıyor."
+  suggestion: "cohortlint[ontology] kurun ve belirsiz tahminleri sessizce uygulamak yerine terimleri inceleyin."
+V002:
+  title: "Düşük güvenli ontoloji eşlemesi"
+  detail: "'{term}' teriminin eşleme güveni {confidence}."
+  suggestion: "Kabul etmeden önce bu eşlemeyi elle doğrulayın."
+V003:
+  title: "Yakın yinelenen ontoloji etiketleri"
+  detail: "'{column}' sütununda {count} ontoloji kavramı birden fazla ham etiketle temsil ediliyor."
+  suggestion: "Kabul edilen yüksek güvenli etiketleri provenance kaydıyla birleştirmek için harmonize kullanın."

@@ -74,3 +74,15 @@ D006:
   title: "Integrability score"
   detail: "The integrability score is {score}/100. This is a communication heuristic, not a statistic."
   suggestion: "Use the individual findings—not this score alone—to decide whether integration is defensible."
+V001:
+  title: "Unmapped ontology terms"
+  detail: "Ontology column '{column}' has {count} unmapped terms, or the optional ontology dependency is unavailable."
+  suggestion: "Install cohortlint[ontology] and review unmapped terms rather than applying guesses silently."
+V002:
+  title: "Low-confidence ontology mapping"
+  detail: "Term '{term}' has mapping confidence {confidence}."
+  suggestion: "Confirm this mapping manually before accepting it."
+V003:
+  title: "Near-duplicate ontology labels"
+  detail: "Column '{column}' has {count} ontology concepts represented by multiple raw labels."
+  suggestion: "Use harmonize to collapse accepted high-confidence labels with provenance."
