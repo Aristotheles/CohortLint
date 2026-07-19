@@ -74,3 +74,15 @@ D006:
   title: "Integrationsfähigkeit"
   detail: "Der Integrationswert beträgt {score}/100. Er ist eine Kommunikationsheuristik, keine Statistik."
   suggestion: "Entscheiden Sie anhand der einzelnen Befunde und nicht allein anhand dieses Wertes."
+V001:
+  title: "Nicht zugeordnete Ontologiebegriffe"
+  detail: "Die Ontologiespalte '{column}' enthält {count} nicht zugeordnete Begriffe oder die optionale Ontologieabhängigkeit fehlt."
+  suggestion: "Installieren Sie cohortlint[ontology] und prüfen Sie Begriffe, statt unsichere Zuordnungen still anzuwenden."
+V002:
+  title: "Ontologiezuordnung mit geringer Konfidenz"
+  detail: "Der Begriff '{term}' hat eine Zuordnungskonfidenz von {confidence}."
+  suggestion: "Bestätigen Sie diese Zuordnung vor der Übernahme manuell."
+V003:
+  title: "Nahezu doppelte Ontologiebezeichnungen"
+  detail: "In der Spalte '{column}' werden {count} Ontologiekonzepte durch mehrere Rohbezeichnungen dargestellt."
+  suggestion: "Fassen Sie akzeptierte hochkonfidente Bezeichnungen mit harmonize und Provenienz zusammen."

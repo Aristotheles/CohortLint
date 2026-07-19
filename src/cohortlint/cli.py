@@ -1,5 +1,6 @@
 """Command-line interface."""
 
+import json
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Annotated
@@ -9,6 +10,7 @@ import typer
 from cohortlint import __version__
 from cohortlint import rules as _rules  # noqa: F401
 from cohortlint.config import load_config
+from cohortlint.harmonize import harmonize_metadata, write_harmonized
 from cohortlint.i18n import resolve_language
 from cohortlint.loader import load_metadata
 from cohortlint.model import Report, RuleContext, Severity
@@ -102,10 +104,39 @@ def check(
 
 
 @app.command()
-def harmonize(paths: Annotated[list[Path] | None, typer.Argument()] = None) -> None:
+def harmonize(
+    paths: Annotated[list[Path] | None, typer.Argument()] = None,
+    config_path: Annotated[Path, typer.Option("--config")] = Path("cohortlint.yaml"),
+    output: Annotated[Path, typer.Option("--output")] = Path("merged.csv"),
+    mappings: Annotated[Path, typer.Option("--mappings")] = Path("mappings.sssom.tsv"),
+    dry_run: Annotated[bool, typer.Option("--dry-run")] = False,
+) -> None:
     """Apply only safe, declared metadata harmonizations."""
-    del paths
-    typer.echo("not implemented")
+    try:
+        config = load_config(config_path)
+        if paths:
+            if len(paths) != len(config.cohorts):
+                raise ValueError("PATHS count must match the configured cohort count")
+            config = config.model_copy(
+                update={
+                    "cohorts": [
+                        cohort.model_copy(update={"path": path.resolve()})
+                        for cohort, path in zip(config.cohorts, paths, strict=True)
+                    ]
+                }
+            )
+        protected = {config_path.resolve(), *(item.path.resolve() for item in config.cohorts)}
+        if output.resolve() in protected or mappings.resolve() in protected:
+            raise ValueError("harmonize outputs must not overwrite config or cohort input files")
+        frame, provenance, sssom = harmonize_metadata(config)
+        if dry_run:
+            typer.echo(json.dumps({"transformations": provenance}, ensure_ascii=False, indent=2))
+            return
+        write_harmonized(frame, provenance, sssom, output, mappings)
+        typer.echo(f"Wrote {len(frame)} rows to {output}")
+    except (ValueError, OSError) as exc:
+        typer.echo(f"Execution error: {exc}", err=True)
+        raise typer.Exit(code=2) from exc
 
 
 @app.command("rules")
