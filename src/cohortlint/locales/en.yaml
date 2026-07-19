@@ -50,3 +50,27 @@ C003:
   title: "Differential missingness"
   detail: "Missingness in '{column}' is associated with '{biological}' after correction (q={q_value})."
   suggestion: "Do not assume complete cases are unbiased; review the missingness mechanism."
+D001:
+  title: "Batch-condition association"
+  detail: "Association between '{biological}' and '{technical}' has bias-corrected Cramér's V={v}."
+  suggestion: "Inspect the contingency table and avoid interpreting batch-associated effects as biological."
+D002:
+  title: "Complete or level-specific confounding"
+  detail: "Level '{level}' of '{biological}' cannot be separated from '{technical}'."
+  suggestion: "This cannot be repaired computationally; restrict to an overlapping subset or obtain samples that break the confounding."
+D003:
+  title: "Rank-deficient design matrix"
+  detail: "The design is not estimable; dependent columns: {dependent}."
+  suggestion: "Remove redundant covariates or redesign the comparison before downstream analysis."
+D004:
+  title: "Multicollinearity among covariates"
+  detail: "Numeric covariate '{column}' has VIF={vif}."
+  suggestion: "Review redundant covariates and retain a scientifically justified estimable model."
+D005:
+  title: "Group size imbalance"
+  detail: "'{biological}' by '{technical}' contains small cells or undersized biological levels."
+  suggestion: "Add samples, combine only defensible groups, or limit claims to adequately represented comparisons."
+D006:
+  title: "Integrability score"
+  detail: "The integrability score is {score}/100. This is a communication heuristic, not a statistic."
+  suggestion: "Use the individual findings—not this score alone—to decide whether integration is defensible."

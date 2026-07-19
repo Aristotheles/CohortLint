@@ -92,7 +92,8 @@ schema:
     )
     result = CliRunner().invoke(app, ["check", "--config", str(config)])
     assert result.exit_code == 0
-    assert result.stdout.strip() == "No findings."
+    assert "[D006]" in result.stdout
+    assert "100/100" in result.stdout
 
 
 def test_cli_reports_exact_structural_fixture_findings(tmp_path: Path) -> None:
@@ -107,4 +108,5 @@ def test_cli_reports_exact_structural_fixture_findings(tmp_path: Path) -> None:
         "S004",
         "S002",
         "S003",
+        "D006",
     ]

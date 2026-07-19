@@ -50,3 +50,27 @@ C003:
   title: "Differentielle Fehlwerte"
   detail: "Fehlwerte in '{column}' sind nach Korrektur mit '{biological}' assoziiert (q={q_value})."
   suggestion: "Nehmen Sie nicht an, dass vollständige Fälle unverzerrt sind; prüfen Sie den Fehlwertmechanismus."
+D001:
+  title: "Assoziation zwischen Batch und Bedingung"
+  detail: "Die Assoziation zwischen '{biological}' und '{technical}' hat ein bias-korrigiertes Cramér's V={v}."
+  suggestion: "Prüfen Sie die Kontingenztabelle und interpretieren Sie Batch-assoziierte Effekte nicht als biologisch."
+D002:
+  title: "Vollständige oder stufenspezifische Konfundierung"
+  detail: "Die Stufe '{level}' von '{biological}' kann nicht von '{technical}' getrennt werden."
+  suggestion: "Dies ist rechnerisch nicht reparierbar; beschränken Sie die Analyse auf überlappende Daten oder erheben Sie zusätzliche Stichproben."
+D003:
+  title: "Rangdefiziente Designmatrix"
+  detail: "Das Design ist nicht schätzbar; abhängige Spalten: {dependent}."
+  suggestion: "Entfernen Sie redundante Kovariaten oder ändern Sie den Vergleich vor der weiteren Analyse."
+D004:
+  title: "Multikollinearität zwischen Kovariaten"
+  detail: "Die numerische Kovariate '{column}' hat VIF={vif}."
+  suggestion: "Prüfen Sie redundante Kovariaten und verwenden Sie ein wissenschaftlich begründetes, schätzbares Modell."
+D005:
+  title: "Unausgewogene Gruppengrößen"
+  detail: "'{biological}' nach '{technical}' enthält kleine Zellen oder zu kleine biologische Stufen."
+  suggestion: "Ergänzen Sie Stichproben oder beschränken Sie Aussagen auf ausreichend repräsentierte Vergleiche."
+D006:
+  title: "Integrationsfähigkeit"
+  detail: "Der Integrationswert beträgt {score}/100. Er ist eine Kommunikationsheuristik, keine Statistik."
+  suggestion: "Entscheiden Sie anhand der einzelnen Befunde und nicht allein anhand dieses Wertes."

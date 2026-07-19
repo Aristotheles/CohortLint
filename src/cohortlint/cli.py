@@ -65,11 +65,15 @@ def check(
             raise ValueError("--format must be terminal or json")
         if fail_on not in {"error", "warning", "never"}:
             raise ValueError("--fail-on must be error, warning, or never")
+        score = next(
+            (float(finding.evidence["score"]) for finding in findings if finding.rule_id == "D006"),
+            100.0,
+        )
         report = Report(
             findings=findings,
             cohorts=list(loaded.cohorts),
             n_samples={name: len(frame) for name, frame in loaded.cohorts.items()},
-            integrability_score=100,
+            integrability_score=score,
             generated_at=datetime.now(UTC),
             cohortlint_version=__version__,
         )
