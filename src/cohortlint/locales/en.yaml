@@ -1,0 +1,4 @@
+TEST001:
+  title: "Test finding"
+  detail: "Test detail for {name}"
+  suggestion: "Review the test input."

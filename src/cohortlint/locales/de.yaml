@@ -1,0 +1,4 @@
+TEST001:
+  title: "Testbefund"
+  detail: "Testdetail für {name}"
+  suggestion: "Prüfen Sie die Testeingabe."

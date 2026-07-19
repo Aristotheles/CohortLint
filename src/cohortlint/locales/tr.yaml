@@ -1,0 +1,4 @@
+TEST001:
+  title: "Test bulgusu"
+  detail: "{name} için test ayrıntısı"
+  suggestion: "Test girdisini gözden geçirin."
