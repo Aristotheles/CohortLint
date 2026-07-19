@@ -39,9 +39,7 @@ class SchemaColumn(BaseModel):
 
 class RulesConfig(BaseModel):
     disable: list[str] = Field(default_factory=list)
-    severity_overrides: dict[str, Literal["error", "warning", "info"]] = Field(
-        default_factory=dict
-    )
+    severity_overrides: dict[str, Literal["error", "warning", "info"]] = Field(default_factory=dict)
     observation_level_ratio: float = Field(default=1.5, gt=1)
     unit_median_ratio: float = Field(default=10.0, gt=1)
     decimal_separator_fraction: float = Field(default=0.8, ge=0, le=1)
@@ -74,6 +72,7 @@ class CohortLintConfig(BaseModel):
         if len(names) != len(set(names)):
             raise ValueError("cohort names must be unique")
         return self
+
 
 def load_config(path: Path) -> CohortLintConfig:
     """Load a config and resolve cohort paths relative to its directory."""

@@ -54,9 +54,7 @@ def test_language_resolution(monkeypatch: pytest.MonkeyPatch) -> None:
 def test_cli_help_and_skeleton_commands() -> None:
     runner = CliRunner()
     assert runner.invoke(app, ["--help"]).exit_code == 0
-    result = runner.invoke(app, ["init"])
-    assert result.exit_code == 0
-    assert "not implemented" in result.stdout
+    assert runner.invoke(app, ["init", "--help"]).exit_code == 0
     assert runner.invoke(app, ["harmonize", "--help"]).exit_code == 0
     rules_result = runner.invoke(app, ["rules"])
     assert rules_result.exit_code == 0

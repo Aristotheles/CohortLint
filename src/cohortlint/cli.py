@@ -11,7 +11,7 @@ from cohortlint import __version__
 from cohortlint import rules as _rules  # noqa: F401
 from cohortlint.config import load_config
 from cohortlint.harmonize import harmonize_metadata, write_harmonized
-from cohortlint.i18n import resolve_language
+from cohortlint.i18n import render, resolve_language
 from cohortlint.loader import load_metadata
 from cohortlint.model import Report, RuleContext, Severity
 from cohortlint.registry import registered_rules, run_rules
@@ -21,11 +21,43 @@ from cohortlint.report.terminal import render_terminal
 
 app = typer.Typer(help="Lint cohort metadata before omics integration.", no_args_is_help=True)
 
+_CONFIG_TEMPLATE = """version: 1
+cohorts:
+  - name: cohort_a
+    path: data/cohort_a.csv
+    sample_id: sample_id
+schema:
+  age:
+    type: numeric
+    unit: years
+    range: [0, 120]
+    required: true
+  condition:
+    type: categorical
+    role: biological
+    required: true
+  batch:
+    type: categorical
+    role: technical
+    required: true
+rules:
+  disable: []
+privacy:
+  k_anonymity_threshold: 5
+output:
+  lang: en
+"""
+
 
 @app.command()
 def init(output: Annotated[Path, typer.Option()] = Path("cohortlint.yaml")) -> None:
     """Create a CohortLint configuration file."""
-    typer.echo(f"not implemented: would write {output}")
+    if output.exists():
+        typer.echo(f"Execution error: refusing to overwrite existing file {output}", err=True)
+        raise typer.Exit(code=2)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(_CONFIG_TEMPLATE, encoding="utf-8")
+    typer.echo(f"Wrote {output}")
 
 
 @app.command()
@@ -146,7 +178,9 @@ def harmonize(
 
 
 @app.command("rules")
-def list_rules() -> None:
+def list_rules(lang: Annotated[str, typer.Option("--lang")] = "en") -> None:
     """List available diagnostic rules."""
+    language = resolve_language(lang)
     for definition in registered_rules():
-        typer.echo(f"{definition.id}\t{definition.category}\t{definition.severity.value}")
+        title = render(definition.id, language, "title", {})
+        typer.echo(f"{definition.id}\t{definition.category}\t{definition.severity.value}\t{title}")

@@ -45,9 +45,7 @@ def load_metadata(config: CohortLintConfig) -> LoadedMetadata:
         sample_column = by_name[name].sample_id
         if sample_column in frame.columns:
             normalized["__sample_id__"] = frame[sample_column].map(
-                lambda value, cohort_name=name: (
-                    None if pd.isna(value) else f"{cohort_name}:{value}"
-                )
+                lambda value, cohort_name=name: None if pd.isna(value) else f"{cohort_name}:{value}"
             )
         else:
             normalized["__sample_id__"] = None
