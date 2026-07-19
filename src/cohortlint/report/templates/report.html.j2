@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="{{ language }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:">
+  <title>{{ labels.title }}</title>
+  <style>
+    body { font: 16px/1.5 system-ui, sans-serif; max-width: 1100px; margin: 2rem auto; padding: 0 1rem; color: #17202a; }
+    header { border-bottom: 3px solid #34495e; margin-bottom: 2rem; }
+    .score { font-size: 2.5rem; font-weight: 700; }
+    article { border-left: 5px solid #7f8c8d; margin: 1rem 0; padding: .75rem 1rem; background: #f7f9f9; }
+    article.error { border-color: #c0392b; } article.warning { border-color: #d68910; } article.info { border-color: #2471a3; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #fff; padding: .75rem; }
+    .scope { color: #566573; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CohortLint</h1>
+    <div class="score">{{ "%.0f"|format(report.integrability_score) }}/100</div>
+    <p>{{ labels.heuristic }}</p>
+  </header>
+  {% for category, findings in grouped.items() %}
+  <section>
+    <h2>{{ category }}</h2>
+    {% for finding in findings %}
+    <article class="{{ finding.severity }}">
+      <h3>{{ finding.rule_id }} · {{ finding.title }}</h3>
+      <div class="scope">{{ finding.scope }} · {{ finding.severity }}</div>
+      <p>{{ finding.detail }}</p>
+      <p>{{ finding.suggestion }}</p>
+      <details><summary>{{ labels.evidence }}</summary><pre>{{ finding.evidence }}</pre></details>
+    </article>
+    {% endfor %}
+  </section>
+  {% endfor %}
+</body>
+</html>
