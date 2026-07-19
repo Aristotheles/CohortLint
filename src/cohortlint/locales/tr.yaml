@@ -50,3 +50,27 @@ C003:
   title: "Diferansiyel eksiklik"
   detail: "'{column}' eksikliği düzeltme sonrasında '{biological}' ile ilişkili (q={q_value})."
   suggestion: "Tam vakaların yanlılıksız olduğunu varsaymayın; eksiklik mekanizmasını inceleyin."
+D001:
+  title: "Batch-koşul ilişkisi"
+  detail: "'{biological}' ile '{technical}' arasındaki ilişkinin yanlılık-düzeltilmiş Cramér's V değeri {v}."
+  suggestion: "Kontenjans tablosunu inceleyin ve batch ile ilişkili etkileri biyolojik etki olarak yorumlamayın."
+D002:
+  title: "Tam veya düzeye özgü konfunding"
+  detail: "'{biological}' değişkeninin '{level}' düzeyi '{technical}' değişkeninden ayrılamıyor."
+  suggestion: "Bu hesaplamayla onarılamaz; örtüşen bir alt kümeye inin veya konfundingi kıran yeni örnekler edinin."
+D003:
+  title: "Rank eksik tasarım matrisi"
+  detail: "Tasarım tahmin edilebilir değil; bağımlı sütunlar: {dependent}."
+  suggestion: "Fazlalık kovaryatları kaldırın veya aşağı akış analizinden önce karşılaştırmayı yeniden tasarlayın."
+D004:
+  title: "Kovaryatlar arası multicollinearity"
+  detail: "Sayısal '{column}' kovaryatının VIF değeri {vif}."
+  suggestion: "Fazlalık kovaryatları inceleyip bilimsel olarak gerekçeli, tahmin edilebilir bir model kullanın."
+D005:
+  title: "Grup büyüklüğü dengesizliği"
+  detail: "'{biological}' ve '{technical}' çaprazlamasında küçük hücreler veya yetersiz biyolojik düzeyler var."
+  suggestion: "Örnek ekleyin veya çıkarımları yeterince temsil edilen karşılaştırmalarla sınırlayın."
+D006:
+  title: "Entegre edilebilirlik skoru"
+  detail: "Entegre edilebilirlik skoru {score}/100. Bu bir iletişim sezgisidir, istatistik değildir."
+  suggestion: "Entegrasyon kararını yalnızca bu skora değil, tek tek bulgulara dayandırın."
