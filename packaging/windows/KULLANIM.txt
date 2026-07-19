@@ -1,0 +1,30 @@
+CohortLint 0.1.0 - Windows taşınabilir paket
+================================================
+
+Kurulum gerekmez. Klasörü ZIP dosyasından tamamen çıkartın.
+
+Hızlı test:
+  Test-Et.cmd dosyasına çift tıklayın.
+
+Kendi verinizle kullanım:
+  1. cohortlint.example.yaml dosyasının bir kopyasını oluşturun.
+  2. CSV/XLSX yollarını ve sütun adlarını kendi verinize göre düzenleyin.
+  3. Bu klasörde PowerShell veya Komut İstemi açın.
+  4. Şunu çalıştırın:
+
+     CohortLint.exe check --config cohortlint.yaml
+
+HTML rapor:
+
+     CohortLint.exe check --config cohortlint.yaml --format html --output report.html --fail-on never
+
+Komutların tamamı:
+
+     CohortLint.exe --help
+     CohortLint.exe rules --lang tr
+
+Notlar:
+  - CohortLint yalnızca metadata tablolarını okur; ifade matrisi okumaz.
+  - Gizlilik bulguları sezgiseldir ve mevzuat uyumluluk değerlendirmesi değildir.
+  - Windows SmartScreen ilk çalıştırmada "tanınmayan uygulama" uyarısı gösterebilir.
+    Paket henüz ticari bir kod imzalama sertifikasıyla imzalanmamıştır.

@@ -27,3 +27,4 @@ Only permissively licensed runtime dependencies may be added.
 | pip-audit | Apache-2.0 |
 | build | MIT |
 | twine | Apache-2.0 |
+| PyInstaller | GPL-2.0-or-later with Bootloader Exception; Windows packaging only |
