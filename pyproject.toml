@@ -39,6 +39,7 @@ Issues = "https://github.com/Aristotheles/CohortLint/issues"
 [project.optional-dependencies]
 anndata = ["anndata>=0.10"]
 ontology = ["text2term>=4.1"]
+case-study = ["matplotlib>=3.8"]
 dev = [
   "bandit>=1.7",
   "build>=1.2",
@@ -60,7 +61,15 @@ cohortlint = "cohortlint.cli:app"
 packages = ["src/cohortlint"]
 
 [tool.hatch.build.targets.sdist]
-include = ["src/cohortlint", "tests", "docs", "README.md", "SECURITY.md", "LICENSE"]
+include = [
+  "src/cohortlint",
+  "tests",
+  "docs",
+  "case_studies",
+  "README.md",
+  "SECURITY.md",
+  "LICENSE",
+]
 
 [tool.pytest.ini_options]
 addopts = "-q"

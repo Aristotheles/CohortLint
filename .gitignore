@@ -10,3 +10,5 @@ build/
 dist/
 artifacts/
 .cohortlint_cache/
+tmp/
+case_studies/gse171524/data/

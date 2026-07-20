@@ -1,0 +1,8 @@
+sample_id,age,sex,condition,annotated_cells
+C51ctr,70.0,female,Control,6098
+C53ctr,79.0,male,Control,7120
+C55ctr,69.0,male,Control,5685
+C57ctr,68.0,male,Control,4789
+L03cov,73.0,male,COVID-19,5060
+L05cov,78.0,female,COVID-19,3052
+L07cov,80.0,male,COVID-19,5074

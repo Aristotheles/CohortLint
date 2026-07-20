@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Add a reproducible GSE171524 public single-nucleus RNA-seq case study that applies
+  CohortLint before donor-level pseudobulk exploration.
+
 ## 0.1.0 - 2026-07-19
 
 - Add CSV, TSV, and XLSX metadata loading with validated YAML configuration.

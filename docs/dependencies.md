@@ -12,6 +12,7 @@
 | pyyaml | MIT |
 | anndata (optional) | BSD-3-Clause |
 | text2term (optional) | BSD-3-Clause |
+| matplotlib (optional case-study extra) | PSF-based |
 
 Only permissively licensed runtime dependencies may be added.
 

@@ -273,6 +273,14 @@ downloads public NCBI GEO metadata from GSE171524, aggregates it to donor level,
 deterministic demonstration cohorts, and generates an HTML report. Expression matrices are
 not downloaded or processed.
 
+For a complete metadata-to-expression example, the reproducible
+[GSE171524 public transcriptomics case study](case_studies/gse171524/README.md) uses a
+computationally bounded subset of the same public single-nucleus RNA-seq study. It runs
+CohortLint first, then produces donor-level pseudobulk QC, cell-composition summaries, PCA,
+an explicitly exploratory expression comparison, and a self-contained HTML overview. The
+case study keeps expression analysis outside CohortLint's package contract and documents its
+statistical limitations to avoid overstating the results.
+
 ## Development
 
 ```bash
@@ -493,6 +501,18 @@ metadata yeniden yazılarak “düzeltilmez.”
 
 Gizlilik bulguları sezgiseldir ve **GDPR ya da başka bir mevzuat için uyumluluk değerlendirmesi
 değildir**. Ayrıntılar için [SECURITY.md](SECURITY.md) dosyasına bakın.
+
+## Gerçek veri vaka çalışması
+
+[GSE171524 transkriptomik vaka çalışması](case_studies/gse171524/README.md), herkese açık
+insan akciğeri tek çekirdek RNA-seq verisi üzerinde baştan sona tekrar üretilebilir bir örnek
+sunar. Akış önce CohortLint ile metadata kalite kapısını çalıştırır; ardından 13 donör için
+pseudobulk kalite kontrolü, hücre tipi bileşimi, PCA, açıkça keşifsel olarak etiketlenmiş ifade
+karşılaştırması ve bağımsız bir HTML özet üretir.
+
+Bu analiz CohortLint paketinin ifade matrisi okumadığı sınırını değiştirmez. Downstream analiz
+ayrı bir vaka çalışmasıdır; klinik sonuç ya da özgün makalenin yeniden üretimi değildir ve
+istatistiksel sınırlamaları açıkça belgelenmiştir.
 
 ## Katkıda bulunma
 
