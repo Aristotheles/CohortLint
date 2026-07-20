@@ -1,0 +1,41 @@
+version: 1
+cohorts:
+- name: discovery_fold
+  path: discovery_metadata.csv
+  sample_id: sample_id
+- name: validation_fold
+  path: validation_metadata.csv
+  sample_id: sample_id
+schema:
+  age:
+    type: numeric
+    unit: years
+    range:
+    - 0
+    - 120
+    required: true
+  sex:
+    type: categorical
+    allowed:
+    - female
+    - male
+    required: true
+  condition:
+    type: categorical
+    allowed:
+    - Control
+    - COVID-19
+    role: biological
+    required: true
+  annotated_cells:
+    type: numeric
+    range:
+    - 1
+    - 1000000
+    required: true
+privacy:
+  k_anonymity_threshold: 3
+rules:
+  missingness_fraction: 0.1
+output:
+  lang: en

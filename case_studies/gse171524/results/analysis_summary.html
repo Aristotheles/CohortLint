@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>GSE171524 public transcriptomics case study</title>
+<style>
+body{font-family:Arial,sans-serif;color:#263746;max-width:1100px;margin:0 auto;padding:32px;line-height:1.55}
+h1,h2{color:#16324f} a{color:#286fb4} .hero{background:#16324f;color:white;padding:28px;border-left:7px solid #168c83}
+.hero h1{color:white;margin-top:0} .note{background:#eaf6f3;border:1px solid #b9ddd6;padding:14px}
+.warn{background:#fff4df;border-left:5px solid #d99b32;padding:14px} img{max-width:100%;height:auto;border:1px solid #d8e2e8}
+table{border-collapse:collapse;width:100%;font-size:14px} th,td{border:1px solid #d8e2e8;padding:7px;text-align:left} th{background:#eaf6f3}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px} @media(max-width:760px){.grid{grid-template-columns:1fr}}
+</style></head><body>
+<div class="hero"><h1>GSE171524: metadata quality gate to real transcriptomics</h1>
+<p>A reproducible CohortLint case study using public human-lung single-nucleus RNA-seq data.</p></div>
+<p class="note"><b>Data:</b> 13 donors (7 control,
+6 COVID-19); 68,710 cell columns summarized;
+public source <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE171524">NCBI GEO GSE171524</a>.</p>
+<h2>1. Metadata before expression</h2>
+<p>The selected donors were divided into deterministic, condition-balanced discovery and validation folds solely to exercise the multi-table workflow. These are not cohorts claimed by the source study. With the case-study missingness threshold set to 10%, CohortLint flagged the missing age value for L04cov and generated a reviewable report.</p>
+<p><a href="cohortlint_report.html">Open the standalone CohortLint report</a></p>
+<h2>2. Sample-level QC and cell composition</h2><div class="grid">
+<img src="sample_qc.png" alt="Sample QC"><img src="cell_type_composition.png" alt="Cell type composition"></div>
+<h2>3. Donor-level pseudobulk exploration</h2><div class="grid">
+<img src="pseudobulk_pca.png" alt="Pseudobulk PCA"><img src="exploratory_volcano.png" alt="Exploratory volcano plot"></div>
+<img src="selected_gene_heatmap.png" alt="Selected gene heatmap">
+<h2>Top exploratory gene-level results</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Gene</th>
+      <th>log2-CPM difference</th>
+      <th>p-value</th>
+      <th>BH FDR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>H3F3A</td>
+      <td>2.072</td>
+      <td>3.532e-07</td>
+      <td>0.001924</td>
+    </tr>
+    <tr>
+      <td>SLC25A22</td>
+      <td>0.9131</td>
+      <td>4.012e-07</td>
+      <td>0.001924</td>
+    </tr>
+    <tr>
+      <td>PSMA4</td>
+      <td>1.741</td>
+      <td>4.649e-07</td>
+      <td>0.001924</td>
+    </tr>
+    <tr>
+      <td>ZCCHC2</td>
+      <td>1.004</td>
+      <td>5.716e-07</td>
+      <td>0.001924</td>
+    </tr>
+    <tr>
+      <td>NDUFB4</td>
+      <td>1.726</td>
+      <td>6.684e-07</td>
+      <td>0.001924</td>
+    </tr>
+    <tr>
+      <td>TFE3</td>
+      <td>1.064</td>
+      <td>7.031e-07</td>
+      <td>0.001924</td>
+    </tr>
+    <tr>
+      <td>CHRM3-AS2</td>
+      <td>-2.248</td>
+      <td>7.316e-07</td>
+      <td>0.001924</td>
+    </tr>
+    <tr>
+      <td>ARRB2</td>
+      <td>1.279</td>
+      <td>7.405e-07</td>
+      <td>0.001924</td>
+    </tr>
+    <tr>
+      <td>MAFG</td>
+      <td>1.596</td>
+      <td>9.222e-07</td>
+      <td>0.001924</td>
+    </tr>
+    <tr>
+      <td>ZFP91</td>
+      <td>0.7702</td>
+      <td>9.727e-07</td>
+      <td>0.001924</td>
+    </tr>
+    <tr>
+      <td>ERFL</td>
+      <td>-2.622</td>
+      <td>9.732e-07</td>
+      <td>0.001924</td>
+    </tr>
+    <tr>
+      <td>AC096564.2</td>
+      <td>-1.094</td>
+      <td>1.095e-06</td>
+      <td>0.001983</td>
+    </tr>
+  </tbody>
+</table>
+<div class="warn"><b>Interpretation boundary.</b> This compact demonstration aggregates all annotated cell types per donor and applies Welch tests to log-CPM values without covariate or cell-composition adjustment. It is not a clinical result, a publication-grade differential-expression model, or a reproduction of the original paper. No FDR threshold is presented as a discovery claim.</div>
+<h2>Reproducibility</h2><p>The complete source code, machine-readable outputs, data provenance, and limitations are versioned with CohortLint. Raw public matrices are downloaded from NCBI and are not redistributed.</p>
+<p>Source publication: Melms JC et al., <i>A molecular single-cell lung atlas of lethal COVID-19</i>, Nature (2021), <a href="https://doi.org/10.1038/s41586-021-03569-1">doi:10.1038/s41586-021-03569-1</a>.</p>
+</body></html>

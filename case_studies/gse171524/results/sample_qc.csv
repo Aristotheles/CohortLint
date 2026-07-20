@@ -1,0 +1,14 @@
+sample_id,matrix_cells,library_counts,detected_genes,source_libraries,age,sex,condition,analysis_partition,annotated_cells
+C51ctr,6099,9430845,28880,1,70.0,female,Control,discovery,6098
+C52ctr,4513,8358414,27448,1,69.0,female,Control,validation,4513
+C53ctr,7120,11151363,29582,1,79.0,male,Control,discovery,7120
+C54ctr,4382,4911587,26605,1,72.0,female,Control,validation,4382
+C55ctr,5685,5817344,27143,1,69.0,male,Control,discovery,5685
+C56ctr,4090,5617927,27223,1,75.0,male,Control,validation,4090
+C57ctr,4789,5546969,27185,1,68.0,male,Control,discovery,4789
+L01cov,3060,4107209,26035,1,70.0,male,COVID-19,validation,3060
+L03cov,5060,18208426,29431,1,73.0,male,COVID-19,discovery,5060
+L04cov,8204,11796843,27983,2,,female,COVID-19,validation,8204
+L05cov,3052,4555013,25579,1,78.0,female,COVID-19,discovery,3052
+L06cov,7582,11237248,27852,1,80.0,female,COVID-19,validation,7582
+L07cov,5074,8523361,27740,1,80.0,male,COVID-19,discovery,5074

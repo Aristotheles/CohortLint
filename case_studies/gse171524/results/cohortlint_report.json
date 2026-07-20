@@ -1,0 +1,100 @@
+{
+  "findings": [
+    {
+      "rule_id": "C002",
+      "severity": "warning",
+      "cohort": "validation_fold",
+      "column": "age",
+      "message_params": {
+        "column": "age",
+        "fraction": "16.7%"
+      },
+      "evidence": {
+        "fraction": 0.16666666666666666
+      },
+      "suggestion_params": {}
+    },
+    {
+      "rule_id": "D006",
+      "severity": "info",
+      "cohort": null,
+      "column": null,
+      "message_params": {
+        "score": "100"
+      },
+      "evidence": {
+        "score": 100.0
+      },
+      "suggestion_params": {}
+    },
+    {
+      "rule_id": "P002",
+      "severity": "warning",
+      "cohort": "discovery_fold",
+      "column": null,
+      "message_params": {
+        "count": 6,
+        "threshold": 3
+      },
+      "evidence": {
+        "group_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "quasi_identifier_columns": [
+          "age_5y_bin",
+          "sex",
+          "condition"
+        ],
+        "driving_columns": [
+          "age_5y_bin"
+        ]
+      },
+      "suggestion_params": {}
+    },
+    {
+      "rule_id": "P002",
+      "severity": "warning",
+      "cohort": "validation_fold",
+      "column": null,
+      "message_params": {
+        "count": 6,
+        "threshold": 3
+      },
+      "evidence": {
+        "group_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "quasi_identifier_columns": [
+          "age_5y_bin",
+          "sex",
+          "condition"
+        ],
+        "driving_columns": [
+          "age_5y_bin"
+        ]
+      },
+      "suggestion_params": {}
+    }
+  ],
+  "cohorts": [
+    "discovery_fold",
+    "validation_fold"
+  ],
+  "n_samples": {
+    "discovery_fold": 7,
+    "validation_fold": 6
+  },
+  "integrability_score": 100.0,
+  "generated_at": "2026-07-20T17:24:47.855705Z",
+  "cohortlint_version": "0.1.0"
+}
